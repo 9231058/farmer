@@ -28,3 +28,15 @@ and we have the following scenarios:
 We write the problem with Here-and-Now formulation so the more the number of scenarios, the huge the problem become.
 
 This problem can have an integer format. In the integer format the farmer can only sell or buy crops in 1000kg packages.
+
+## Up and Running
+This project is based on awesome [gurobi](https://www.gurobi.com/) python interface so first of all you need to instal it.
+Then use the following commands:
+
+```sh
+poetry shell
+cd $GUROBI_HOME
+python3 setup.py install
+cd -
+poetry install
+```
