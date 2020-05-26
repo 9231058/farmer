@@ -34,7 +34,7 @@ class Config:
     Config contains the configuration of farmer problem
     """
 
-    scenarios: typing.List[float] = [0.2, 0, -0.2]
+    scenarios: typing.List[float] = dataclasses.field(default_factory=list)
 
     area: int = 500
 
