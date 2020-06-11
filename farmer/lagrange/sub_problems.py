@@ -14,7 +14,7 @@ class WheatSubProblem:
         # model.ModelSense is minimization by default
         self.model = Model("wheat_sub_problem")
 
-        self.x_1 = self.model.addVar(ub=self.cfg.area, nam="x_1")
+        self.x_1 = self.model.addVar(ub=self.cfg.area, name="x_1")
 
         probability = 1 / len(self.cfg.scenarios)
         for index, scenario in enumerate(self.cfg.scenarios):
@@ -51,9 +51,9 @@ class CornSubProblem:
         self.cfg = cfg
 
         # model.ModelSense is minimization by default
-        self.model = Model("cron_sub_problem")
+        self.model = Model("corn_sub_problem")
 
-        self.x_2 = self.model.addVar(ub=self.cfg.area, nam="x_2")
+        self.x_2 = self.model.addVar(ub=self.cfg.area, name="x_2")
 
         probability = 1 / len(self.cfg.scenarios)
         for index, scenario in enumerate(self.cfg.scenarios):
@@ -68,7 +68,7 @@ class CornSubProblem:
         )
 
         self.model.addConstr(
-            self.cfg.wheat.requirement
+            self.cfg.corn.requirement
             <= self.x_2 * self.cfg.corn.produce_rate * (1 + scenario)
             + y_21
             - y_22,
@@ -92,7 +92,7 @@ class BeetSubProblem:
         # model.ModelSense is minimization by default
         self.model = Model("beet_sub_problem")
 
-        self.x_3 = self.model.addVar(ub=self.cfg.area, nam="x_2")
+        self.x_3 = self.model.addVar(ub=self.cfg.area, name="x_3")
 
         probability = 1 / len(self.cfg.scenarios)
         for index, scenario in enumerate(self.cfg.scenarios):
@@ -111,7 +111,7 @@ class BeetSubProblem:
 
         self.model.addConstr(
             self.x_3 * self.cfg.beet.produce_rate * (1 + scenario)
-            <= +y_32 + y_33,
+            >= y_32 + y_33,
             name="beet_produce_constraint",
         )
 
