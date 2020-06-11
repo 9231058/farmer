@@ -1,3 +1,8 @@
+"""
+Configuration of the farmer problem.
+here we can configure the number of available seeds and their price.
+"""
+
 import dataclasses
 import typing
 
