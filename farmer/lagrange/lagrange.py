@@ -14,6 +14,10 @@ from .sub_problems import WheatSubProblem, CornSubProblem, BeetSubProblem
 
 @dataclasses.dataclass
 class Parameters:
+    """
+    Lagrange subgradient method parameters.
+    """
+
     lower_bound: float
     upper_bound: float
     k_1_bound: int
@@ -21,6 +25,10 @@ class Parameters:
 
 
 class Lagrange(Solver):
+    """
+    Lagrange subgradient method implementation
+    """
+
     def __init__(self, cfg: Config, param: Parameters):
         self.cfg = cfg
         self.k = 1
